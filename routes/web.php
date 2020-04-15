@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+// Route::get('teste/{lang?}', function(){
+//     return view('teste');
+// })->middleware('locale');
+
+
+
+//verifica se usuário está logado, se estiver vai para a dash caso contrário vai pra login
+Route::get('/', function(){
+    if (Auth::check()) {
+        return redirect('/home');
+    } else {
+        return redirect('/login');
+    }
 });
 
-Route::get('/teste', function(){
-    return view('teste');
-});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
