@@ -7,3 +7,5 @@ O sistema extrai de arquivos PDFs (vários ao mesmo tempo) os dados mais importa
 Exibe histórico de consultas.
 
 Ferramenta criada em PHP puro e Inspinia Design 
+
+### [finalizado]
